@@ -2,22 +2,18 @@
 
 // Package classification People API.
 //
-// the purpose of this application is to provide an application
-// that is using plain go code to define an API
-//
-// This should demonstrate all the possible comment annotations
-// that are available to turn go code into a fully compliant swagger 2.0 spec
+// the purpose of this application is to provide an application that allows remote use of a wireless garage door opener
 //
 // Terms Of Service:
 //
 // there are no TOS at this moment, use at your own risk we take no responsibility
 //
 //     Schemes: http, https
-//     Host: localhost:3000
+//     Host: localhost:8000
 //     BasePath: /v1
 //     Version: 0.0.1
 //     License: MIT http://opensource.org/licenses/MIT
-//     Contact: Jean-Thierry Bonhomme <jtbonhomme@gmail.com> http://john.doe.com
+//     Contact: Wyatt Barnes <wyatt@writerof.software> http://opensesame.dev
 //
 //     Consumes:
 //     - application/json
@@ -31,6 +27,7 @@ package main
 import (
 	"log"
 	"net/http"
+	"time"
 
 	"github.com/rs/cors"
 
@@ -48,9 +45,8 @@ func setupGlobalMiddleware(handler http.Handler) http.Handler {
 // our main function
 func main() {
 	// populate our test database
-	db.Insert(model.Person{ID: "1", Firstname: "John", Lastname: "Doe", Address: &model.Address{City: "City X", State: "State X"}})
-	db.Insert(model.Person{ID: "2", Firstname: "Koko", Lastname: "Doe", Address: &model.Address{City: "City Z", State: "State Y"}})
-	db.Insert(model.Person{ID: "3", Firstname: "Francis", Lastname: "Sunday"})
+	db.Insert(model.Member{ID: "1", FirstName: "James", LastName: "Holden", Created: time.Now().UTC().String(), Status: "active", Pin: "1234"})
+	db.Insert(model.Member{ID: "2", FirstName: "Naomi", LastName: "Nagata", Created: time.Now().UTC().String(), Status: "active", Pin: "4321"})
 
 	appRouter := router.NewRouter()
 	log.Fatal(http.ListenAndServe(":8000", setupGlobalMiddleware(appRouter)))

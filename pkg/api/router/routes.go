@@ -19,15 +19,15 @@ type Routes []Route
 
 var routes = Routes{
 	Route{
-		"GetPeople",
+		"GetMembers",
 		"GET",
-		"/people",
-		handler.GetPeople,
+		"/members",
+		handler.GetMembers,
 	},
 	Route{
-		"GetPerson",
+		"GetMember",
 		"GET",
-		"/people/{id}",
-		handler.GetPerson,
+		"/member/{id}",
+		handler.GetMember,
 	},
 }

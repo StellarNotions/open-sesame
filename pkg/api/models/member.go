@@ -1,28 +1,30 @@
 package models
 
-// Person description.
-// swagger:model person
-type Person struct {
-	// ID of the person
+// Member description.
+// swagger:model member
+type Member struct {
+	// ID of the member
 	//
 	// required: true
 	ID string `json:"id,omitempty"`
-	// Firstname of the person
+	// First name of the member
 	//
 	// required: true
-	Firstname string `json:"firstname,omitempty"`
-	// Lastname of the person
+	FirstName string `json:"firstName,omitempty"`
+	// Last Name of the member
 	//
 	// required: true
-	Lastname string `json:"lastname,omitempty"`
-	// Address of the person
+	LastName string `json:"lasName,omitempty"`
+	// UTC time stamp of when member was created
 	//
-	// required: false
-	Address *Address `json:"address,omitempty"`
-}
-
-// Address description
-type Address struct {
-	City  string `json:"city,omitempty"`
-	State string `json:"state,omitempty"`
+	// required: true
+	Created string `json:"created,omitempty"`
+	// Status of member
+	//
+	// required: true
+	Status string `json:"status,omitempty"`
+	// PIN for member
+	//
+	// required: true
+	Pin string `json:"pin,omitempty"`
 }

@@ -10,18 +10,18 @@ type jsonError struct {
 	Message string `json:"message"`
 }
 
-// PersonResponse contains a single person information
+// MemberResponse contains a single member's information
 //
-// swagger:response personResponse
-type personResponse struct {
+// swagger:response memberResponse
+type memberResponse struct {
 	// in: body
-	Payload *model.Person `json:"person"`
+	Payload *model.Member `json:"member"`
 }
 
-// PeopleResponse constains all people from database information
+// MembersResponse contains all member's information
 //
-// swagger:response peopleResponse
-type peopleResponse struct {
+// swagger:response membersResponse
+type membersResponse struct {
 	// in: body
-	Payload *[]model.Person `json:"people"`
+	Payload *[]model.Member `json:"members"`
 }

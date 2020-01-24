@@ -4,14 +4,14 @@ import (
 	model "github.com/StellarNotions/open-sesame/pkg/api/models"
 )
 
-var people []model.Person
+var members []model.Member
 
 // Insert allows populating database
-func Insert(person model.Person) {
-	people = append(people, person)
+func Insert(member model.Member) {
+	members = append(members, member)
 }
 
 // Get returns the whole database
-func Get() []model.Person {
-	return people
+func Get() []model.Member {
+	return members
 }
