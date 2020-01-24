@@ -30,4 +30,16 @@ var routes = Routes{
 		"/member/{id}",
 		handler.GetMember,
 	},
+	Route{
+		"GetGates",
+		"GET",
+		"/gates",
+		handler.GetGates,
+	},
+	Route{
+		"GetGate",
+		"GET",
+		"/gate/{id}",
+		handler.GetGate,
+	},
 }
