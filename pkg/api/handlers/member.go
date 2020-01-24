@@ -21,13 +21,13 @@ type IDParam struct {
 	ID int64 `json:"id"`
 }
 
-// GetPeople is an httpHandler for route GET /people
-func GetPeople(w http.ResponseWriter, r *http.Request) {
-	// swagger:route GET /people people listPeople
+// GetMembers is an httpHandler for route GET /people
+func GetMembers(w http.ResponseWriter, r *http.Request) {
+	// swagger:route GET /members member listMembers
 	//
-	// Lists all people.
+	// Lists all members.
 	//
-	// This will show all recorded people.
+	// This will show all recorded members.
 	//
 	//     Consumes:
 	//     - application/json
@@ -38,14 +38,14 @@ func GetPeople(w http.ResponseWriter, r *http.Request) {
 	//     Schemes: http, https
 	//
 	//     Responses:
-	//       200: peopleResponse
+	//       200: membersResponse
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
 	json.NewEncoder(w).Encode(db.Get())
 }
 
-// GetPerson is an httpHandler for route GET /people/{id}
-func GetPerson(w http.ResponseWriter, r *http.Request) {
+// GetMember is an httpHandler for route GET /people/{id}
+func GetMember(w http.ResponseWriter, r *http.Request) {
 	// swagger:route GET /people/{id} people listPerson
 	//
 	// Lists person from their id.
