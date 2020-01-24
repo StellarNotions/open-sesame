@@ -45,8 +45,10 @@ func setupGlobalMiddleware(handler http.Handler) http.Handler {
 // our main function
 func main() {
 	// populate our test database
-	db.Insert(model.Member{ID: "1", FirstName: "James", LastName: "Holden", Created: time.Now().UTC().String(), Status: "active", Pin: "1234"})
-	db.Insert(model.Member{ID: "2", FirstName: "Naomi", LastName: "Nagata", Created: time.Now().UTC().String(), Status: "active", Pin: "4321"})
+	db.InsertMember(model.Member{ID: "1", FirstName: "James", LastName: "Holden", Created: time.Now().UTC().String(), Status: "active", Pin: "1234"})
+	db.InsertMember(model.Member{ID: "2", FirstName: "Naomi", LastName: "Nagata", Created: time.Now().UTC().String(), Status: "active", Pin: "4321"})
+	db.InsertGate(model.Gate{ID: "1", Name: "enter gate", Status: "closed"})
+	db.InsertGate(model.Gate{ID: "2", Name: "exit gate", Status: "open"})
 
 	appRouter := router.NewRouter()
 	log.Fatal(http.ListenAndServe(":8000", setupGlobalMiddleware(appRouter)))
