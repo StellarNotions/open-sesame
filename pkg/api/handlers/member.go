@@ -2,10 +2,8 @@ package handlers
 
 import (
 	"encoding/json"
-	"net/http"
-	"time"
-
 	"github.com/gorilla/mux"
+	"net/http"
 
 	db "github.com/StellarNotions/open-sesame/pkg/api/db"
 )
@@ -13,13 +11,13 @@ import (
 // IDParam is used to identify a person
 //
 // swagger:parameters listPerson
-type IDParam struct {
-	// The ID of a person
-	//
-	// in: path
-	// required: true
-	ID int64 `json:"id"`
-}
+//type IDParam struct {
+//	// The ID of a person
+//	//
+//	// in: path
+//	// required: true
+//	ID int64 `json:"id"`
+//}
 
 // GetMembers is an httpHandler for route GET /people
 func GetMembers(w http.ResponseWriter, r *http.Request) {
@@ -41,7 +39,7 @@ func GetMembers(w http.ResponseWriter, r *http.Request) {
 	//       200: membersResponse
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
-	json.NewEncoder(w).Encode(db.Get())
+	json.NewEncoder(w).Encode(db.GetMember())
 }
 
 // GetMember is an httpHandler for route GET /people/{id}
@@ -68,11 +66,9 @@ func GetMember(w http.ResponseWriter, r *http.Request) {
 	//       404: jsonError
 	params := mux.Vars(r)
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	for _, item := range db.Get() {
+	for _, item := range db.GetMember() {
 		if item.ID == params["id"] {
 			w.WriteHeader(http.StatusOK)
-			// add a arbitraty pause of 1 second
-			time.Sleep(1000 * time.Millisecond)
 			if err := json.NewEncoder(w).Encode(item); err != nil {
 				panic(err)
 			}
