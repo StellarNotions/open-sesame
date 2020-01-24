@@ -18,5 +18,5 @@ type Gate struct {
 	// GPIO pin for gate
 	//
 	// required: true
-	GPIOPin string `json:"gpioPin,omitempty"`
+	GPIOPin int `json:"gpioPin,omitempty"`
 }

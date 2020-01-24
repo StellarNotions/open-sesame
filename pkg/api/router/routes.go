@@ -42,4 +42,16 @@ var routes = Routes{
 		"/gate/{id}",
 		handler.GetGate,
 	},
+	Route{
+		"OpenGate",
+		"GET",
+		"/gate/{id}/open",
+		handler.OpenGate,
+	},
+	Route{
+		"CloseGate",
+		"GET",
+		"/gate/{id}/close",
+		handler.CloseGate,
+	},
 }
