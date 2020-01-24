@@ -6,12 +6,12 @@ import (
 
 var members []model.Member
 
-// Insert allows populating database
-func Insert(member model.Member) {
+// InsertMember allows populating database
+func InsertMember(member model.Member) {
 	members = append(members, member)
 }
 
-// Get returns the whole database
-func Get() []model.Member {
+// GetMember returns the whole database
+func GetMember() []model.Member {
 	return members
 }
